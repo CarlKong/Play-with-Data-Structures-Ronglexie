@@ -1,37 +1,37 @@
 /**
  * LeetCode 203
  * https://leetcode.com/problems/remove-linked-list-elements/description/
- *
+ * <p>
  * 删除链表中等于给定值 val 的所有节点
- *
+ * <p>
  * 递归处理方法
  *
- * @author ronglexie
- * @version 2018/8/12
+ * @author carl
+ * @version 2020/8/12
  */
 public class RemoveLinkedListElementsSolutionRecursion {
-	public ListNode removeElements(ListNode head, int val) {
+    public static void main(String[] args) {
+        int[] array = new int[]{1, 2, 3, 4, 5, 6};
+        ListNode head = new ListNode(array);
 
-		if (head == null) {
-			return null;
-		}
+        ListNode listNode = new RemoveLinkedListElementsSolutionRecursion().removeElements(head, 3);
 
-		// 递归处理方法
-		ListNode res = removeElements(head.next, val);
-		if(head.val == val){
-			return res;
-		}else{
-			head.next = res;
-			return head;
-		}
-	}
+        System.out.println(listNode.toString());
+    }
 
-	public static void main(String[] args) {
-		int[] array = new int[]{1, 2, 3, 4, 5, 6};
-		ListNode head = new ListNode(array);
+    public ListNode removeElements(ListNode head, int val) {
 
-		ListNode listNode = new RemoveLinkedListElementsSolutionRecursion().removeElements(head, 3);
+        if (head == null) {
+            return null;
+        }
 
-		System.out.println(listNode.toString());
-	}
+        // 递归处理方法
+        ListNode res = removeElements(head.next, val);
+        if (head.val == val) {
+            return res;
+        } else {
+            head.next = res;
+            return head;
+        }
+    }
 }
